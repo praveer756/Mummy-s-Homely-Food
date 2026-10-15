@@ -1,0 +1,402 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* ── Maharaja Ink Palette ── */
+    --color-base:         #7b6f10;   /* deep ocean navy — primary background  */
+    --color-surface:      #101E36;   /* slightly lifted surface               */
+    --color-surface-mid:  #162140;   /* cards, panels                         */
+    --color-saffron:      #FF9A3C;   /* warm saffron — brand accent / CTAs    */
+    --color-saffron-dark: #E07820;   /* deeper saffron for hover              */
+    --color-saffron-dim:  #3D2510;   /* muted saffron fill                    */
+    --color-jade:         #00C896;   /* electric jade — secondary accent      */
+    --color-jade-dark:    #00A578;   /* deeper jade                           */
+    --color-jade-dim:     #003D2E;   /* muted jade fill                       */
+    --color-pearl:        #F0EAD6;   /* warm pearl — primary text             */
+    --color-pearl-dim:    #C8BFA8;   /* dimmed pearl for secondary text       */
+    --color-rose:         #FF4D6D;   /* rose — badges, heat, alerts           */
+    --color-rose-dark:    #D93055;   /* deeper rose                           */
+  }
+
+  html {
+    background-color: #7b6f10;
+    color: #F0EAD6;
+  }
+
+  body {
+    background-color: #7b6f10;
+    color: #F0EAD6;
+    font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom font utilities */
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+.font-marathi {
+  font-family: var(--font-marathi), var(--font-dm-sans), sans-serif;
+}
+
+/* ── Background utilities ── */
+.bg-base          { background-color: #0A1628; }
+.bg-surface       { background-color: #101E36; }
+.bg-surface-mid   { background-color: #162240; }
+.bg-saffron       { background-color: #FF9A3C; }
+.bg-saffron-dark  { background-color: #E07820; }
+.bg-saffron-dim   { background-color: #3D2510; }
+.bg-jade          { background-color: #00C896; }
+.bg-jade-dark     { background-color: #00A578; }
+.bg-jade-dim      { background-color: #003D2E; }
+.bg-pearl         { background-color: #F0EAD6; }
+.bg-rose          { background-color: #FF4D6D; }
+.bg-gold          { background-color: #7b6f10;}
+/* Legacy aliases so untouched components don't break */
+.bg-tamarind      { background-color: #7b6f10; }
+.bg-mahogany      { background-color: #162240; }
+.bg-turmeric      { background-color: #FF9A3C; }
+.bg-vermilion     { background-color: #FF4D6D; }
+.bg-terracotta    { background-color: #FF9A3C; }
+.bg-banana-leaf   { background-color: #00C896; }
+.bg-forest        { background-color: #003D2E; }
+.bg-forest-dark   { background-color: #002A20; }
+.bg-ivory         { background-color: #F0EAD6; }
+.bg-rice          { background-color: #F0EAD6; }
+.bg-brass         { background-color: #C8BFA8; }
+.bg-coral-red     { background-color: #FF4D6D; }
+.bg-cornflower    { background-color: #00C896; }
+.bg-buttercream   { background-color: #FF9A3C; }
+
+/* ── Text utilities ── */
+.text-saffron     { color: #FF9A3C; }
+.text-jade        { color: #00C896; }
+.text-pearl       { color: #F0EAD6; }
+.text-pearl-dim   { color: #C8BFA8; }
+.text-rose        { color: #FF4D6D; }
+
+/* Legacy aliases */
+.text-tamarind    { color: #0A1628; }
+.text-mahogany    { color: #162240; }
+.text-turmeric    { color: #FF9A3C; }
+.text-vermilion   { color: #FF4D6D; }
+.text-terracotta  { color: #FF9A3C; }
+.text-banana-leaf { color: #00C896; }
+.text-forest      { color: #003D2E; }
+.text-ivory       { color: #F0EAD6; }
+.text-rice        { color: #F0EAD6; }
+.text-brass       { color: #C8BFA8; }
+.text-brass-light { color: #D8CFBA; }
+.text-coral-red   { color: #FF4D6D; }
+.text-cornflower  { color: #00C896; }
+.text-buttercream { color: #FF9A3C; }
+
+/* ── Border utilities ── */
+.border-saffron     { border-color: #FF9A3C; }
+.border-jade        { border-color: #00C896; }
+.border-pearl       { border-color: #F0EAD6; }
+.border-rose        { border-color: #FF4D6D; }
+
+/* Legacy aliases */
+.border-turmeric    { border-color: #FF9A3C; }
+.border-brass       { border-color: #2A3650; }
+.border-terracotta  { border-color: #FF9A3C; }
+.border-banana-leaf { border-color: #00C896; }
+.border-forest      { border-color: #003D2E; }
+.border-coral-red   { border-color: #FF4D6D; }
+.border-cornflower  { border-color: #00C896; }
+.border-buttercream { border-color: #FF9A3C; }
+
+/* ── Texture overlays ── */
+.texture-paper {
+  background-image: radial-gradient(rgba(240, 234, 214, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.texture-subtle {
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 154, 60, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 10% 20%, rgba(0, 200, 150, 0.03) 0%, transparent 40%);
+}
+
+/* ── Glow effects ── */
+.glow-saffron {
+  box-shadow: 0 0 35px -5px rgba(255, 154, 60, 0.50);
+}
+
+.glow-saffron-subtle {
+  box-shadow: 0 0 20px -3px rgba(255, 154, 60, 0.28);
+}
+
+.glow-jade {
+  box-shadow: 0 0 35px -5px rgba(0, 200, 150, 0.45);
+}
+
+.glow-jade-subtle {
+  box-shadow: 0 0 20px -3px rgba(0, 200, 150, 0.25);
+}
+
+.glow-rose {
+  box-shadow: 0 0 35px -5px rgba(255, 77, 109, 0.45);
+}
+
+.glow-rose-subtle {
+  box-shadow: 0 0 20px -3px rgba(255, 77, 109, 0.25);
+}
+
+/* Legacy aliases */
+.glow-amber           { box-shadow: 0 0 35px -5px rgba(255, 154, 60, 0.50); }
+.glow-amber-subtle    { box-shadow: 0 0 20px -3px rgba(255, 154, 60, 0.28); }
+.glow-coral           { box-shadow: 0 0 35px -5px rgba(255, 77, 109, 0.45); }
+.glow-coral-subtle    { box-shadow: 0 0 20px -3px rgba(255, 77, 109, 0.25); }
+.glow-cornflower      { box-shadow: 0 0 35px -5px rgba(0, 200, 150, 0.45); }
+.glow-cornflower-subtle { box-shadow: 0 0 20px -3px rgba(0, 200, 150, 0.25); }
+
+/* ── Text glows ── */
+.glow-saffron-text {
+  text-shadow:
+    0 0 10px rgba(255, 154, 60, 0.85),
+    0 0 25px rgba(255, 154, 60, 0.55),
+    0 0 45px rgba(255, 154, 60, 0.30);
+}
+
+.glow-jade-text {
+  text-shadow:
+    0 0 10px rgba(0, 200, 150, 0.85),
+    0 0 25px rgba(0, 200, 150, 0.55),
+    0 0 45px rgba(0, 200, 150, 0.30);
+}
+
+/* Legacy aliases */
+.glow-red-neon {
+  text-shadow:
+    0 0 10px rgba(255, 77, 109, 0.8),
+    0 0 25px rgba(255, 77, 109, 0.6),
+    0 0 45px rgba(255, 77, 109, 0.4);
+}
+
+.glow-warm-sign {
+  text-shadow:
+    0 0 8px  rgba(255, 154, 60, 0.9),
+    0 0 20px rgba(0,   200, 150, 0.7),
+    0 0 35px rgba(255, 77,  109, 0.5);
+}
+
+.text-glow-coral {
+  text-shadow:
+    0 0 8px  rgba(255, 77, 109, 0.8),
+    0 0 20px rgba(255, 77, 109, 0.5);
+}
+
+.text-glow-cornflower {
+  text-shadow:
+    0 0 8px  rgba(0, 200, 150, 0.8),
+    0 0 20px rgba(0, 200, 150, 0.5);
+}
+
+/* ── Gradient utilities ── */
+.gradient-saffron-jade {
+  background: linear-gradient(135deg, #FF9A3C 0%, #00C896 100%);
+}
+
+.gradient-saffron-pearl {
+  background: linear-gradient(135deg, #FF9A3C 0%, #F0EAD6 100%);
+}
+
+.gradient-rose-saffron {
+  background: linear-gradient(135deg, #FF4D6D 0%, #FF9A3C 100%);
+}
+
+.gradient-trio {
+  background: linear-gradient(135deg, #FF4D6D 0%, #00C896 50%, #FF9A3C 100%);
+}
+
+/* Legacy aliases */
+.gradient-coral-butter      { background: linear-gradient(135deg, #FF4D6D 0%, #FF9A3C 100%); }
+.gradient-cornflower-butter { background: linear-gradient(135deg, #00C896 0%, #FF9A3C 100%); }
+
+/* Text gradients */
+.text-gradient-saffron-pearl {
+  background: linear-gradient(135deg, #FF9A3C, #F0EAD6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-saffron-jade {
+  background: linear-gradient(135deg, #FF9A3C, #00C896);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-jade-pearl {
+  background: linear-gradient(135deg, #00C896, #F0EAD6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Legacy aliases */
+.text-gradient-coral-butter {
+  background: linear-gradient(135deg, #FF4D6D, #FF9A3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cornflower-butter {
+  background: linear-gradient(135deg, #00C896, #FF9A3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-trio {
+  background: linear-gradient(135deg, #FF4D6D, #00C896, #FF9A3C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #7b6f10;
+}
+::-webkit-scrollbar-thumb {
+  background: #162240;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF9A3C;
+}
+
+/* ── Cinematic hero animations (unchanged) ── */
+.mhf-cinematic-hero {
+  perspective: 1100px;
+  isolation: isolate;
+}
+.mhf-sign-glow {
+  animation: mhfGlowPulse 4.5s ease-in-out infinite;
+}
+.mhf-dust {
+  opacity: 0;
+  animation-name: mhfDustFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes mhfGlowPulse {
+  0%, 100% { opacity: .45; transform: scale(.94); }
+  50%       { opacity: .9;  transform: scale(1.08); }
+}
+@keyframes mhfDustFloat {
+  0%   { opacity: 0;   transform: translate3d(0,   14px, 0) scale(.7);  }
+  25%  { opacity: .7; }
+  75%  { opacity: .45; }
+  100% { opacity: 0;   transform: translate3d(18px, -42px, 0) scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mhf-cinematic-hero *,
+  .mhf-cinematic-hero *::before,
+  .mhf-cinematic-hero *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 2.5D camera choreography ── */
+.mhf-journey {
+  isolation: isolate;
+  background: #7b6f10;
+}
+
+.mhf-exterior-camera {
+  transform: translate3d(var(--pointer-x, 0), var(--pointer-y, 0), 0) scale(1);
+  transform-origin: 50% 65%;
+  opacity: 1;
+  transition: opacity 1.25s ease 0.15s;
+  will-change: transform, opacity;
+}
+
+.mhf-exterior-camera.mhf-exterior-approach {
+  animation: mhfCameraEnter 4s cubic-bezier(.68, 0, .19, 1) forwards;
+}
+
+.mhf-exterior-camera.mhf-exterior-away {
+  opacity: 0;
+}
+
+.mhf-interior-camera {
+  opacity: 0;
+  clip-path: circle(0% at 50% 64%);
+  transform: scale(1.015);
+  transform-origin: 50% 63%;
+  will-change: clip-path, transform, opacity;
+}
+
+.mhf-interior-camera.mhf-interior-reveal {
+  animation: mhfDoorwayReveal 1.85s cubic-bezier(.72, 0, .18, 1) forwards;
+}
+
+.mhf-interior-camera.mhf-table-approach {
+  animation: mhfPushToTable 3.05s cubic-bezier(.55, 0, .2, 1) forwards;
+}
+
+.mhf-warm-bloom {
+  animation: mhfWarmBloom 5s ease-in-out infinite;
+}
+
+@keyframes mhfCameraEnter {
+  0%   { transform: translate3d(var(--pointer-x, 0), var(--pointer-y, 0), 0) scale(1); }
+  100% { transform: translate3d(0, 0, 0) scale(3.45); }
+}
+
+@keyframes mhfDoorwayReveal {
+  0%   { opacity: 1; clip-path: circle(0%    at 50% 64%); transform: scale(1.015); }
+  100% { opacity: 1; clip-path: circle(150%  at 50% 64%); transform: scale(1.015); }
+}
+
+@keyframes mhfPushToTable {
+  0%   { opacity: 1; clip-path: circle(150% at 50% 64%); transform: scale(1.015); }
+  100% { opacity: 1; clip-path: circle(150% at 50% 64%); transform: scale(1.25);  }
+}
+
+@keyframes mhfWarmBloom {
+  0%, 100% { opacity: .35; transform: scale(.96); }
+  50%       { opacity: .72; transform: scale(1.08); }
+}
+
+@media (max-width: 640px) {
+  .mhf-exterior-camera { transform-origin: 50% 64%; }
+
+  @keyframes mhfCameraEnter {
+    0%   { transform: scale(1); }
+    100% { transform: scale(2.75); }
+  }
+
+  .mhf-interior-camera { transform-origin: 51% 64%; }
+
+  @keyframes mhfPushToTable {
+    0%   { opacity: 1; clip-path: circle(150% at 50% 64%); transform: scale(1.015); }
+    100% { opacity: 1; clip-path: circle(150% at 50% 64%); transform: scale(1.14);  }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mhf-exterior-camera,
+  .mhf-interior-camera,
+  .mhf-warm-bloom {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
